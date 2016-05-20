@@ -23,17 +23,32 @@
   //email --> which is a string
   //getUsername --> which is a function that returns the current object's username property. *Don't use 'user' instead use the 'this' keyword*
 
-    //Code Here
+   var user = {
+     username: "TK",
+     email: "me@yahoo.com",
+     getUsername: function() {
+       return this.username;
+     }
+   }
+   
 
 //Now, invoke the getUsername method and verify you got the username of the object and not anything else.
-
+user.getUsername();
 
 //Next Problem
 
 
 // Write the function definitions which will make the following function invocations function properly.
 
-  //Function Invocations Here
+var Car = function(make, model, year) {
+  this.make = make;
+  this.model = model;
+  this.year = year;
+  this.location = 0;
+  this.moveCar = function() {
+    return 10;
+  }
+};
 
 var prius = new Car('Toyota', 'Prius', 2011);
 var mustang = new Car('Ford', 'Mustang', 2013);
@@ -54,7 +69,8 @@ var getYear = function(){
 //Above you're given the getYear function. Using your prius and mustang objects from above, use the proper syntax that will allow for you to call the getYear function with the prius then the mustang objects being the focal objects. *Don't add getYear as a property on both objects*.
 
 //Note(no tests)
-  //Code Here
+getYear.call(prius);
+getYear.call(mustang);
 
 
 //New Problem
@@ -68,17 +84,17 @@ var myUser = {
 };
 
 var getMyUsername = function(){
-  console.log(this.username);
+  console.log(myUser.username);
 };
 
 setTimeout(getMyUsername, 5000);
 
 //Above you're given an object, a function, and a setTimeout invocation. After 5 seconds, what will the getUsername function return?
 //Note(no tests)
-  //Answer Here
+'iliketurtels'
 
 //In the example above, what is the 'this keyword' bound to when getUsername runs?
 
-  //Answer Here
+the window 
 
 //Fix the setTimeout invocation so that the user object will be the focal object when getUsername is ran.
